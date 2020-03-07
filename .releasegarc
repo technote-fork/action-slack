@@ -1,0 +1,8 @@
+{
+  "inputs": {
+    "OUTPUT_BUILD_INFO_FILENAME": "build.json",
+    "TEST_TAG_PREFIX": "test/",
+    "CLEAN_TEST_TAG": "true",
+    "CLEAN_TARGETS": ".[!.]*,__tests__,src,*.js,*.ts,*.json,*.lock,*.yml,*.yaml,docs"
+  }
+}

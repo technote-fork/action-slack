@@ -6,18 +6,16 @@
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint src/**/*.ts",
-    "pack": "ncc build",
-    "test": "jest && codecov",
-    "test-for-local": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test",
-    "release": "npm run build && npm run pack"
+    "test": "yarn lint && yarn cover",
+    "lint": "eslint 'src/**/*.ts' --cache",
+    "lint:fix": "eslint --fix 'src/**/*.ts'",
+    "cover": "jest --coverage",
+    "update": "ncu -u && yarn install && yarn upgrade && yarn audit",
+    "release": "yarn release-ga --test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/8398a7/action-slack.git"
+    "url": "git+https://github.com/technote-fork/action-slack.git"
   },
   "keywords": [
     "actions",
@@ -30,19 +28,14 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.0",
-    "@actions/exec": "^1.0.2",
     "@actions/github": "^2.0.0",
-    "@actions/io": "^1.0.1",
-    "@actions/tool-cache": "^1.1.2",
-    "@slack/webhook": "^5.0.2",
-    "semver": "^7.1.1"
+    "@slack/webhook": "^5.0.2"
   },
   "devDependencies": {
+    "@technote-space/release-github-actions-cli": "^1.5.0",
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.1",
-    "@types/semver": "^6.2.0",
     "@typescript-eslint/parser": "^2.13.0",
-    "@zeit/ncc": "^0.20.5",
     "codecov": "^3.6.5",
     "eslint": "^6.8.0",
     "eslint-plugin-github": "^3.4.0",
