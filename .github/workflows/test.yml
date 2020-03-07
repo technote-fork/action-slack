@@ -18,7 +18,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - run: yarn test
-      - uses: 8398a7/action-slack@v2
+      - uses: technote-fork/action-slack@gh-actions
         with:
           status: ${{ job.status }}
         env:
