@@ -109,11 +109,12 @@ export class Client {
     const { sha } = github.context;
     const { owner, repo } = github.context.repo;
 
-    const commit = await this.github?.repos.getCommit({
-      owner,
-      repo,
-      ref: sha,
-    });
+    // const commit = await this.github?.repos.getCommit({
+    //   owner,
+    //   repo,
+    //   ref: sha,
+    // });
+    const commit = undefined as any;
     const author = commit?.data.commit.author;
 
     return this.filterField(
